@@ -4,7 +4,7 @@
 
 # TARGTYPE "Win32 (x86) Application" 0x0101
 
-CFG=example.cpp.main_leak_trace.1 - Win32 Debug
+CFG=example.cpp.main_leak_trace.1 - Win32 Unicode Debug wmain
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
@@ -13,12 +13,14 @@ CFG=example.cpp.main_leak_trace.1 - Win32 Debug
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "example.cpp.main_leak_trace.1.mak" CFG="example.cpp.main_leak_trace.1 - Win32 Debug"
+!MESSAGE NMAKE /f "example.cpp.main_leak_trace.1.mak" CFG="example.cpp.main_leak_trace.1 - Win32 Unicode Debug wmain"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
 !MESSAGE "example.cpp.main_leak_trace.1 - Win32 Release" (based on "Win32 (x86) Application")
 !MESSAGE "example.cpp.main_leak_trace.1 - Win32 Debug" (based on "Win32 (x86) Application")
+!MESSAGE "example.cpp.main_leak_trace.1 - Win32 Unicode Debug" (based on "Win32 (x86) Application")
+!MESSAGE "example.cpp.main_leak_trace.1 - Win32 Unicode Debug wmain" (based on "Win32 (x86) Application")
 !MESSAGE 
 
 # Begin Project
@@ -52,7 +54,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /machine:I386
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /version:0.1 /subsystem:console /map /machine:I386 /libpath:"$(UNIXEM)/lib"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /version:0.1 /subsystem:console /map /machine:I386 /libpath:"$(UNIXEM)/lib"
 # SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "example.cpp.main_leak_trace.1 - Win32 Debug"
@@ -78,7 +80,63 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /version:0.1 /subsystem:console /map /debug /machine:I386 /out:"Debug/example.cpp.main_leak_trace.1.debug.exe" /pdbtype:sept /libpath:"$(UNIXEM)/lib"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /version:0.1 /subsystem:console /map /debug /machine:I386 /out:"Debug/example.cpp.main_leak_trace.1.debug.exe" /pdbtype:sept /libpath:"$(UNIXEM)/lib"
+# SUBTRACT LINK32 /pdb:none
+
+!ELSEIF  "$(CFG)" == "example.cpp.main_leak_trace.1 - Win32 Unicode Debug"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "UDebug"
+# PROP BASE Intermediate_Dir "UDebug"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir "UDebug"
+# PROP Intermediate_Dir "UDebug"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /I "$(PANTHEIOS_EXTRAS_DIAGUTIL_ROOT)/include" /I "$(PANTHEIOS_ROOT)/include" /I "$(STLSOFT)/include" /I "$(UNIXEM)/include" /D "WIN32" /D "_DEBUG" /D "STLSOFT_FORCE_C_COMPILATION_IN_BETA" /D "STRICT" /D "_CONSOLE" /D "_UNICODE" /D "UNICODE" /YX /FD /GZ /c
+# ADD CPP /nologo /W3 /Gm /GX /Zi /Od /I "$(PANTHEIOS_EXTRAS_DIAGUTIL_ROOT)/include" /I "$(PANTHEIOS_ROOT)/include" /I "$(STLSOFT)/include" /I "$(UNIXEM)/include" /D "WIN32" /D "_DEBUG" /D "STLSOFT_FORCE_C_COMPILATION_IN_BETA" /D "STRICT" /D "_CONSOLE" /D "_UNICODE" /D "UNICODE" /FR /YX /FD /GZ /c
+# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0xc09 /d "_DEBUG"
+# ADD RSC /l 0xc09 /d "_DEBUG"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /version:0.1 /subsystem:console /map /debug /machine:I386 /out:"UDebug/example.cpp.main_leak_trace.1.debug.exe" /pdbtype:sept /libpath:"$(UNIXEM)/lib"
+# SUBTRACT BASE LINK32 /pdb:none
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /version:0.1 /subsystem:console /map /debug /machine:I386 /out:"UDebug/example.cpp.main_leak_trace.1.debug.exe" /pdbtype:sept /libpath:"$(UNIXEM)/lib"
+# SUBTRACT LINK32 /pdb:none
+
+!ELSEIF  "$(CFG)" == "example.cpp.main_leak_trace.1 - Win32 Unicode Debug wmain"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "UDebug_wmain"
+# PROP BASE Intermediate_Dir "UDebug_wmain"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir "UDebug_wmain"
+# PROP Intermediate_Dir "UDebug_wmain"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /I "$(PANTHEIOS_EXTRAS_DIAGUTIL_ROOT)/include" /I "$(PANTHEIOS_ROOT)/include" /I "$(STLSOFT)/include" /I "$(UNIXEM)/include" /D "USE_wmain" /D "WIN32" /D "_DEBUG" /D "STLSOFT_FORCE_C_COMPILATION_IN_BETA" /D "STRICT" /D "_CONSOLE" /D "_UNICODE" /D "UNICODE" /YX /FD /GZ /c
+# ADD CPP /nologo /W3 /Gm /GX /Zi /Od /I "$(PANTHEIOS_EXTRAS_DIAGUTIL_ROOT)/include" /I "$(PANTHEIOS_ROOT)/include" /I "$(STLSOFT)/include" /I "$(UNIXEM)/include" /D "USE_wmain" /D "WIN32" /D "_DEBUG" /D "STLSOFT_FORCE_C_COMPILATION_IN_BETA" /D "STRICT" /D "_CONSOLE" /D "_UNICODE" /D "UNICODE" /YX /FD /GZ /c
+# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0xc09 /d "_DEBUG"
+# ADD RSC /l 0xc09 /d "_DEBUG"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /version:0.1 /subsystem:console /map /debug /machine:I386 /out:"UDebug/example.cpp.main_leak_trace.1.debug.exe" /pdbtype:sept /libpath:"$(UNIXEM)/lib"
+# SUBTRACT BASE LINK32 /pdb:none
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /version:0.1 /subsystem:console /map /debug /machine:I386 /out:"UDebug_main/example.cpp.main_leak_trace.1.debug.exe" /pdbtype:sept /libpath:"$(UNIXEM)/lib"
 # SUBTRACT LINK32 /pdb:none
 
 !ENDIF 
@@ -87,6 +145,8 @@ LINK32=link.exe
 
 # Name "example.cpp.main_leak_trace.1 - Win32 Release"
 # Name "example.cpp.main_leak_trace.1 - Win32 Debug"
+# Name "example.cpp.main_leak_trace.1 - Win32 Unicode Debug"
+# Name "example.cpp.main_leak_trace.1 - Win32 Unicode Debug wmain"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
@@ -108,6 +168,14 @@ SOURCE=..\implicit_link.cpp
 # Begin Group "STLSoft"
 
 # PROP Default_Filter ""
+# Begin Source File
+
+SOURCE="$(STLSOFT)\include\stlsoft\internal\head_version.h"
+# End Source File
+# Begin Source File
+
+SOURCE="$(STLSOFT)\include\stlsoft\internal\lead_version.h"
+# End Source File
 # Begin Source File
 
 SOURCE="$(STLSOFT)\include\stlsoft\internal\cccap\msvc.h"
@@ -187,7 +255,23 @@ SOURCE="$(PANTHEIOS_ROOT)\include\pantheios\internal\generated\log_functions.h"
 # End Source File
 # Begin Source File
 
+SOURCE="$(PANTHEIOS_ROOT)\include\pantheios\shims\access\string\core\pan_severity_t.hpp"
+# End Source File
+# Begin Source File
+
+SOURCE="$(PANTHEIOS_ROOT)\include\pantheios\shims\access\string\core\pan_slice_t.hpp"
+# End Source File
+# Begin Source File
+
 SOURCE="$(PANTHEIOS_ROOT)\include\pantheios\pantheios.h"
+# End Source File
+# Begin Source File
+
+SOURCE="$(PANTHEIOS_ROOT)\include\pantheios\internal\shim_declarations.hpp"
+# End Source File
+# Begin Source File
+
+SOURCE="$(PANTHEIOS_ROOT)\include\pantheios\internal\slice.hpp"
 # End Source File
 # Begin Source File
 

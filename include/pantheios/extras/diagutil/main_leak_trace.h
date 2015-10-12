@@ -54,9 +54,9 @@
 
 #ifndef PANTHEIOS_DOCUMENTATION_SKIP_SECTION
 # define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_H_MAIN_LEAK_TRACE_MAJOR    1
-# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_H_MAIN_LEAK_TRACE_MINOR    1
-# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_H_MAIN_LEAK_TRACE_REVISION 3
-# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_H_MAIN_LEAK_TRACE_EDIT     6
+# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_H_MAIN_LEAK_TRACE_MINOR    2
+# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_H_MAIN_LEAK_TRACE_REVISION 1
+# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_H_MAIN_LEAK_TRACE_EDIT     7
 #endif /* !PANTHEIOS_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -156,6 +156,53 @@ pantheios_extras_diagutil_main_leak_trace_invoke(
 
 #endif /* _MSC_VER && _DEBUG */
 }
+
+#ifndef PANTHEIOS_DOCUMENTATION_SKIP_SECTION
+
+STLSOFT_INLINE
+int
+pantheios_extras_diagutil_main_leak_trace_invoke_w(
+    int                 argc
+,   wchar_t**           argv
+,   int (STLSOFT_CDECL* pfnMain)(int, wchar_t**)
+)
+{
+#if defined(_MSC_VER) && \
+    defined(_DEBUG)
+
+    int             r;
+    _CrtMemState    memState;
+
+    _CrtMemCheckpoint(&memState);
+
+#ifdef __cplusplus
+    try
+    {
+#endif /* __cplusplus */
+
+        r = pfnMain(argc, argv);
+
+        _CrtMemDumpAllObjectsSince(&memState);
+#ifdef __cplusplus
+    }
+    catch(std::exception&)
+    {
+        _CrtMemDumpAllObjectsSince(&memState);
+
+        throw;
+    }
+#endif /* __cplusplus */
+
+    return r;
+
+#else /* ? _MSC_VER && _DEBUG */
+
+    return pfnMain(argc, argv);
+
+#endif /* _MSC_VER && _DEBUG */
+}
+
+#endif /* !PANTHEIOS_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Inclusion

@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the example.cpp.main_leak_trace.1 library.
  *
  * Created:     6th January 2011
- * Updated:     10th September 2015
+ * Updated:     13th October 2015
  *
  * Status:      Wizard-generated
  *
@@ -32,7 +32,11 @@
 
 /* ////////////////////////////////////////////////////////////////////// */
 
+#ifdef USE_wmain
+int main0(int argc, wchar_t** argv)
+#else /* ? USE_wmain */
 int main0(int argc, char** argv)
+#endif /* USE_wmain */
 {
 #ifdef _DEBUG
     malloc(1);
@@ -45,7 +49,11 @@ int main0(int argc, char** argv)
     return EXIT_SUCCESS;
 }
 
+#ifdef USE_wmain
+int wmain(int argc, wchar_t** argv)
+#else /* ? USE_wmain */
 int main(int argc, char** argv)
+#endif /* USE_wmain */
 {
     return ::pantheios::extras::diagutil::main_leak_trace::invoke(argc, argv, main0);
 }

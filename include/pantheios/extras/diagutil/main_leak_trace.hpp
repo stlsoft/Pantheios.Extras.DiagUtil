@@ -4,7 +4,7 @@
  * Purpose:     Definition of the pantheios::extras::diagutil::main_leak_trace::invoke() function.
  *
  * Created:     28th December 2010
- * Updated:     10th September 2015
+ * Updated:     13th October 2015
  *
  * Home:        http://www.pantheios.org/
  *
@@ -54,9 +54,9 @@
 
 #ifndef PANTHEIOS_DOCUMENTATION_SKIP_SECTION
 # define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_HPP_MAIN_LEAK_TRACE_MAJOR      1
-# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_HPP_MAIN_LEAK_TRACE_MINOR      1
-# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_HPP_MAIN_LEAK_TRACE_REVISION   2
-# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_HPP_MAIN_LEAK_TRACE_EDIT       5
+# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_HPP_MAIN_LEAK_TRACE_MINOR      2
+# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_HPP_MAIN_LEAK_TRACE_REVISION   1
+# define PANTHEIOS_EXTRAS_DIAGUTIL_VER_PANTHEIOS_EXTRAS_DIAGUTIL_HPP_MAIN_LEAK_TRACE_EDIT       6
 #endif /* !PANTHEIOS_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -150,6 +150,17 @@ invoke(
     return pantheios_extras_diagutil_main_leak_trace_invoke(argc, argv, pfnMain);
 }
 
+inline
+int
+invoke(
+    int                 argc
+,   wchar_t**           argv
+,   int (STLSOFT_CDECL* pfnMain)(int, wchar_t**)
+)
+{
+    return pantheios_extras_diagutil_main_leak_trace_invoke_w(argc, argv, pfnMain);
+}
+
 #ifndef PANTHEIOS_DOCUMENTATION_SKIP_SECTION
 inline
 int
@@ -160,6 +171,17 @@ invoke(
 )
 {
     return pantheios_extras_diagutil_main_leak_trace_invoke(argc, const_cast<char**>(argv), reinterpret_cast<int (STLSOFT_CDECL*)(int, char**)>(pfnMain));
+}
+
+inline
+int
+invoke(
+    int                 argc
+,   wchar_t const**     argv
+,   int (STLSOFT_CDECL* pfnMain)(int, wchar_t const* const*)
+)
+{
+    return pantheios_extras_diagutil_main_leak_trace_invoke_w(argc, const_cast<wchar_t**>(argv), reinterpret_cast<int (STLSOFT_CDECL*)(int, wchar_t**)>(pfnMain));
 }
 #endif /* !PANTHEIOS_DOCUMENTATION_SKIP_SECTION */
 
