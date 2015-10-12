@@ -6,12 +6,16 @@ ideas/
 Debug/
 Debug Multithreaded/
 Debug Multithreaded DLL/
+UDebug/
+UDebug_wmain/
 Unicode Debug/
 Unicode Debug Multithreaded/
 Unicode Debug Multithreaded DLL/
 Release/
 Release Multithreaded/
 Release Multithreaded DLL/
+URelease/
+URelease_wmain/
 Unicode Release/
 Unicode Release Multithreaded/
 Unicode Release Multithreaded DLL/
@@ -37,6 +41,7 @@ list_changes.cmd
 *.o
 *.obj
 *.opensdf
+*.opt
 *.out
 *.pch
 *.pdb
