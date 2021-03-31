@@ -6,7 +6,7 @@
 
 /.vs/
 
-ideas/
+/ideas/
 
 Debug/
 Debug Multithreaded/
@@ -28,6 +28,8 @@ Unicode Release Multithreaded DLL/
 # directories (by pattern)
 
 # files (by name)
+
+.DS_Store
 
 list_changes.cmd
 
