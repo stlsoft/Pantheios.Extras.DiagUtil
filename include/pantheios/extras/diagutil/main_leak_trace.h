@@ -4,11 +4,12 @@
  * Purpose:     Definition of the pantheios_extras_diagutil_main_leak_trace_invoke() function.
  *
  * Created:     28th December 2010
- * Updated:     13th October 2015
+ * Updated:     31st March 2021
  *
  * Home:        http://www.pantheios.org/
  *
- * Copyright (c) 2011-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2021, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2011-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -20,9 +21,10 @@
  * - Redistributions in binary form must reproduce the above copyright
  *   notice, this list of conditions and the following disclaimer in the
  *   documentation and/or other materials provided with the distribution.
- * - Neither the name(s) of Matthew Wilson and Synesis Software nor the
- *   names of any contributors may be used to endorse or promote products
- *   derived from this software without specific prior written permission.
+ * - Neither the name(s) of Matthew Wilson and Synesis Information Systems
+ *   nor the names of any contributors may be used to endorse or promote
+ *   products derived from this software without specific prior written
+ *   permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
  * IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
@@ -49,7 +51,7 @@
 #define PANTHEIOS_EXTRAS_DIAGUTIL_INCL_PANTHEIOS_EXTRAS_DIAGUTIL_H_MAIN_LEAK_TRACE
 
 /* /////////////////////////////////////////////////////////////////////////
- * Version information
+ * version information
  */
 
 #ifndef PANTHEIOS_DOCUMENTATION_SKIP_SECTION
@@ -60,7 +62,7 @@
 #endif /* !PANTHEIOS_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
- * Includes
+ * includes
  */
 
 #include <pantheios/extras/diagutil/internal/common.h>
@@ -130,15 +132,15 @@ pantheios_extras_diagutil_main_leak_trace_invoke(
 
     _CrtMemCheckpoint(&memState);
 
-#ifdef __cplusplus
+# ifdef __cplusplus
     try
     {
-#endif /* __cplusplus */
+# endif /* __cplusplus */
 
         r = pfnMain(argc, argv);
 
         _CrtMemDumpAllObjectsSince(&memState);
-#ifdef __cplusplus
+# ifdef __cplusplus
     }
     catch(std::exception&)
     {
@@ -146,7 +148,7 @@ pantheios_extras_diagutil_main_leak_trace_invoke(
 
         throw;
     }
-#endif /* __cplusplus */
+# endif /* __cplusplus */
 
     return r;
 
@@ -205,15 +207,14 @@ pantheios_extras_diagutil_main_leak_trace_invoke_w(
 #endif /* !PANTHEIOS_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
- * Inclusion
+ * inclusion
  */
 
 #ifdef STLSOFT_CF_PRAGMA_ONCE_SUPPORT
 # pragma once
 #endif /* STLSOFT_CF_PRAGMA_ONCE_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !PANTHEIOS_EXTRAS_DIAGUTIL_INCL_PANTHEIOS_EXTRAS_DIAGUTIL_H_MAIN_LEAK_TRACE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+
