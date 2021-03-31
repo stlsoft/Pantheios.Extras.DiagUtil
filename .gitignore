@@ -1,6 +1,11 @@
 
 # directories (by name)
 
+/_build/
+/_internal/
+
+/.vs/
+
 ideas/
 
 Debug/
@@ -26,31 +31,45 @@ Unicode Release Multithreaded DLL/
 
 list_changes.cmd
 
+logging-bailout.txt
+
+sh.exe.stackdump
+
 # files (by pattern)
 
 *~
 *.a
 *.app
+*.bak
 *.dll
 *.dylib
 *.exe
 *.gch
+*.idb
 *.ilk
 *.lib
+*.log
 *.ncb
 *.o
 *.obj
 *.opensdf
 *.opt
+*.org
 *.out
 *.pch
 *.pdb
+*.res
 *.sdf
 *.sbr
 *.scc
 *.so
 *.suo
 *.swp
+*.tlog
+*.tmp
+*.unsuccessfulbuild
 *.vcproj*.user
 *.vcxproj*.user
+*.zip
+
 
