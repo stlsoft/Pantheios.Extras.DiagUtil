@@ -180,12 +180,12 @@ pantheios_extras_diagutil_main_leak_trace_invoke_w(
 #ifdef __cplusplus
     try
     {
-#endif /* __cplusplus */
+# endif /* __cplusplus */
 
         r = pfnMain(argc, argv);
 
         _CrtMemDumpAllObjectsSince(&memState);
-#ifdef __cplusplus
+# ifdef __cplusplus
     }
     catch(std::exception&)
     {
@@ -193,7 +193,7 @@ pantheios_extras_diagutil_main_leak_trace_invoke_w(
 
         throw;
     }
-#endif /* __cplusplus */
+# endif /* __cplusplus */
 
     return r;
 
